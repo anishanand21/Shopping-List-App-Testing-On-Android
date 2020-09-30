@@ -49,13 +49,6 @@ class ShoppingDaoTest {
     }
 
     @Test
-    fun testLaunchFragmentInHiltContainer() {
-        launchFragmentInHiltContainer<ShoppingFragment> {
-
-        }
-    }
-
-    @Test
     fun insertShoppingItem() = runBlockingTest {
         val shoppingItem = ShoppingItem("name", 1, 1f, "url", id = 1)
         dao.insertShoppingItem(shoppingItem)
@@ -67,7 +60,7 @@ class ShoppingDaoTest {
 
     @Test
     fun deleteShoppingItem() = runBlockingTest {
-        val shoppingItem = ShoppingItem("name", 1, 1f, "url", id = 1)
+        val shoppingItem = ShoppingItem("name", 1,  1f, "url", id = 1)
         dao.insertShoppingItem(shoppingItem)
         dao.deleteShoppingItem(shoppingItem)
 
