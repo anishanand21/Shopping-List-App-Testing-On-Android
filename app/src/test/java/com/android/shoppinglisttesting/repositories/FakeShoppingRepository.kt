@@ -11,7 +11,6 @@ class FakeShoppingRepository : ShoppingRepository {
     private val shoppingItems = mutableListOf<ShoppingItem>()
 
     private val observableShoppingItems = MutableLiveData<List<ShoppingItem>>(shoppingItems)
-
     private val observableTotalPrice = MutableLiveData<Float>()
 
     private var shouldReturnNetworkError = false
@@ -40,11 +39,11 @@ class FakeShoppingRepository : ShoppingRepository {
     }
 
     override fun observeAllShoppingItems(): LiveData<List<ShoppingItem>> {
-        return observeAllShoppingItems()
+        return observableShoppingItems
     }
 
     override fun observeTotalPrice(): LiveData<Float> {
-        return observeTotalPrice()
+        return observableTotalPrice
     }
 
     override suspend fun searchForImage(imageQuery: String): Resource<ImageResponse> {
